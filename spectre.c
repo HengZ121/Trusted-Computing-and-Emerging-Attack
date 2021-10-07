@@ -1,3 +1,12 @@
+/***
+* File name: spectre.c
+* Author: Heng Zhang (Master student @ University of Ottawa) hzhan274@uottawa.ca
+*
+* This C file reveals the possibility of conducting a spectre attack, and is tested on Ubuntu 20.04.1 LTS.
+* This file DOES NOT provide the specific way to retrive data from cache, which requires more complicated implementation
+* and profound (extremely) knowledge in certain operating system architecture.
+***/
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,14 +17,6 @@
 /***
 * Victim Code
 ***/
-
-// int *memory_chunk_one;
-// memory_chunk_one = (int *) malloc(10 * sizeof(int));
-// int *memory_chunk_two;
-// memory_chunk_two = (int *) malloc(10 * sizeof(int));
-
-/// sizeof(int) is 4 bytes
-/// 40 bytes = 320 bits
 
 int array_size = 10;
 uint8_t array1[10] = {0,1,2,3,4,5,6,7,8,9};
